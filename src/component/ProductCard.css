@@ -1,0 +1,195 @@
+/* =====================
+   Product Card Styling
+   ===================== */
+.product-card {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: left;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* =====================
+   Image
+   ===================== */
+.image-container {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f9fafb;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.6s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.05);
+}
+.image-container img:has(img:hover)img:not(:hover){
+filter:blur()
+}
+
+/* =====================
+   Text
+   ===================== */
+.text-container h1 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 8px 0;
+  line-height: 1.3;
+  min-height: 2.6em;
+}
+
+.text-container h3 {
+  margin: 6px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+.text-container p {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin: 10px 0 14px;
+  line-height: 1.4;
+  min-height: 3.6em;
+  overflow: hidden;
+}
+
+/* =====================
+   Buttons
+   ===================== */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* --- Show More Button (fancy gradient border from first code) --- */
+.product-card .show-more {
+  position: relative;
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 12px;
+  color: #fff;
+  background: #1F2937;   /* button fill */
+  z-index: 0;
+}
+
+/* animated gradient border */
+.product-card .show-more::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--angle),
+    #ec4899, #8b5cf6, #3b82f6, #14b8a6, #ec4899
+  );
+  animation: spin 4s linear infinite;
+  z-index: -2;
+}
+
+/* inner mask */
+.product-card .show-more::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  background: #1F2937;
+  z-index: -1;
+}
+
+/* register custom property */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes spin {
+  to { --angle: 360deg; }
+}
+
+/* --- Add to Cart Button (green ridge style from first code) --- */
+.product-card .add-to-cart {
+  background-color: #333;
+  color: #fff;
+  border: 5px ridge green; 
+  padding: 0.4rem 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  font-size: 0.9rem;
+}
+
+.product-card .add-to-cart:hover {
+  background-color: #555;
+  transform: scale(1.05);
+}
+
+/* =====================
+   Bottom Section
+   ===================== */
+.bottom-section {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Color Options */
+.color-options {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.color-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #d1d5db;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.color-circle:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 6px rgba(0,0,0,0.15);
+}
+
+.color-circle.selected {
+  border: 2px solid #111827;
+  transform: scale(1.25);
+  box-shadow: 0 0 8px rgba(0,0,0,0.25);
+}
+
+/* Colors */
+.color-black { background-color: #000; }
+.color-grey { background-color: #6b7280; }
+.color-white { background-color: #fff; border: 2px solid #000; }
+.color-lightseagreen { background-color: lightseagreen; }

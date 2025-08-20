@@ -1,0 +1,91 @@
+/* Navbar.css */
+
+/* Optional: define a consistent nav height */
+:root {
+  --nav-h: 56px;
+}
+
+body {
+  margin: 0; /* ensure no default gap above the navbar */
+}
+
+/* NAV CONTAINER */
+.nav {
+  /* Sticky behavior (primary) */
+  position: sticky;
+  position: -webkit-sticky; /* iOS Safari */
+  top: 0;
+  z-index: 1000;
+
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 12px 20px;
+  min-height: var(--nav-h);
+
+  /* Visuals */
+  background: rgba(34, 34, 34, 0.92);
+  backdrop-filter: saturate(160%) blur(6px);
+  -webkit-backdrop-filter: saturate(160%) blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* LINKS */
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  margin: 0 8px;
+}
+
+.nav a:hover {
+  background: linear-gradient(45deg, #7e8bff, #ff758c);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(255, 118, 155, 0.35);
+}
+
+.nav a.active {
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+  color: #fff;
+}
+
+/* Push last link (My Cart) to the far right */
+.nav a:last-child {
+  margin-left: auto;
+  background: linear-gradient(45deg, #7e8bff, #ff758c);
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Fallback for browsers without sticky support */
+@supports not ((position: sticky) or (position: -webkit-sticky)) {
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  /* Prevent content being hidden under the fixed nav */
+  body {
+    padding-top: var(--nav-h);
+  }
+}
+
+/* Optional: Respect safe area on devices with a notch */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .nav {
+    padding-top: calc(12px + env(safe-area-inset-top));
+    min-height: calc(var(--nav-h) + env(safe-area-inset-top));
+  }
+}

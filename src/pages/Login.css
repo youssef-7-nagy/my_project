@@ -1,0 +1,151 @@
+/* Login.css */
+
+.login-page {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;    /* ✅ exact viewport height */
+  width: 100vw;     /* ✅ exact viewport width */
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #0f2027);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden; /* ✅ hides overflow so bg doesn't leak */
+  z-index: 0;
+}
+
+
+/* Floating particles */
+.login-page::before {
+  content: "";
+  position: fixed;   /* ✅ lock to viewport, not parent */
+  top: 0;
+  left: 0;
+  width: 100vw;      /* ✅ full viewport width */
+  height: 100vh;     /* ✅ full viewport height */
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 2%, transparent 3%);
+  background-size: 50px 50px;
+  animation: particles 20s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Glass effect login box */
+.login-box {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1s ease-out;
+  width: 350px;
+  text-align: center;
+  color: white;
+}
+
+/* Title */
+.login-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Form styles */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Input fields */
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.login-form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.login-form input:focus {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 10px #00c6ff, 0 0 20px #007bff;
+}
+
+/* Remember me checkbox */
+.form-check {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.form-check input {
+  margin-right: 8px;
+}
+
+/* Login button */
+.btn-login {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  transition: all 0.4s ease;
+}
+
+.btn-login:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00c6ff, 0 0 25px #0072ff;
+}
+
+/* Signup link */
+.signup-link {
+  font-size: 14px;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.signup-link a {
+  color: #00c6ff;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes particles {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50px); }
+}

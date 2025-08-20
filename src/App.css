@@ -1,0 +1,49 @@
+
+
+.login-PAGE h2{
+
+color: rgb(119, 180, 180);
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+
+
+
+.login-PAGE{
+text-align: center;
+
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+.product-card {
+  padding: 30px;
+  border-radius: 6px;
+  background-color: rgba(255, 233, 201, 0.558);
+}
+
+
+
+
+
+
+/* Ensure full height for flex layout */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main wrapper */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* Content will expand to push footer down */
+.content {
+  flex: 1;
+}

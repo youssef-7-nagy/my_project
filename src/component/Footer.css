@@ -1,0 +1,48 @@
+.footer {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Dark gradient */
+  color: #fff;
+  height: 60px; /* Same as typical navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+  max-width: 1200px;
+}
+
+.footer-logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.footer-text {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 15px;
+  font-size: 1.3rem;
+}
+
+.footer-socials a {
+  color: #fff;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.footer-socials a:hover {
+  transform: scale(1.15);
+  color: #4facfe; /* Hover accent */
+}
